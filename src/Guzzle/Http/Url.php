@@ -531,6 +531,9 @@ class Url
             if ($path[0] == '/') {
                 $this->path = $path;
             } else {
+                $tmpPath = explode('/', $this->path);
+                array_pop($tmpPath);
+                $this->path = implode('/', $tmpPath);
                 $this->path .= '/' . $path;
             }
             $this->normalizePath();
